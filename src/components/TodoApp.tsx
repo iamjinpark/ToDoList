@@ -47,10 +47,22 @@ function TodoApp() {
     [todos],
   );
 
+  // To Do 수정하기
+  const toggleTodo = useCallback(
+    (id: number) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+        ),
+      );
+    },
+    [todos],
+  );
+
   return (
     <TodoTemplate>
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} removeTodo={removeTodo} />
+      <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </TodoTemplate>
   );
 }
