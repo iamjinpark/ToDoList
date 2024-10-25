@@ -8,23 +8,36 @@ import { TodoProps } from '../types/TodoList';
 function TodoApp() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
 
-  // 초기 외부 API 데이터 연동
+  // 초기 데이터 불러오기
   useEffect(() => {
-    const fetchTodos = async (): Promise<void> => {
-      try {
-        const response = await axios.get<TodoProps[]>(
-          'https://jsonplaceholder.typicode.com/todos?_limit=5',
-        );
-        setTodos(response.data);
-      } catch (error) {
-        console.error('Error :', error);
-      }
-    };
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos));
+    } else {
+      const fetchTodos = async (): Promise<void> => {
+        try {
+          const response = await axios.get<TodoProps[]>(
+            'https://jsonplaceholder.typicode.com/todos?_limit=5',
+          );
+          setTodos(response.data);
+        } catch (error) {
+          console.error('Error :', error);
+        }
+      };
 
-    fetchTodos();
+      fetchTodos();
+    }
   }, []);
 
+  // 로컬 스토리지에 데이터 저장
+  useEffect(() => {
+    if (todos.length > 0) {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }, [todos]);
+
   // To Do 추가하기
+  // TODO : id값 동적으로 바꾸기
   const nextId = useRef(6);
   const addTodo = useCallback(
     (title: string) => {
