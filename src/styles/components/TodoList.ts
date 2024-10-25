@@ -42,7 +42,10 @@ const StyleListItemText = styled.div<StyledCheckBoxProps>`
     $completed ? 'line-through' : 'none'};
 `;
 
-const StyledRemoveButton = styled.div`
+const StyledRemoveButton = styled.button`
+  background: none;
+  outline: none;
+  border: none;
   display: flex;
   align-items: center;
   font-size: 1.5rem;

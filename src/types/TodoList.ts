@@ -5,7 +5,11 @@ interface TodoProps {
 }
 
 interface TodoListProps {
-  todos?: TodoProps[];
+  todos: TodoProps[];
+  removeTodo: (id: number) => void;
+}
+
+interface TodoListItemProps {
   todo: TodoProps;
   removeTodo: (id: number) => void;
 }
@@ -14,4 +18,4 @@ interface AddTodoProps {
   addTodo: (title: string) => void;
 }
 
-export type { TodoProps, TodoListProps, AddTodoProps };
+export type { TodoProps, TodoListProps, TodoListItemProps, AddTodoProps };

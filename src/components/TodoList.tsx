@@ -5,10 +5,9 @@ import { TodoListProps, TodoProps } from '../types/TodoList';
 function TodoList({ todos, removeTodo }: TodoListProps) {
   return (
     <StyledList>
-      {todos &&
-        todos.map((todo: TodoProps) => (
-          <TodoListItem todo={todo} key={todo.id} removeTodo={removeTodo} />
-        ))}
+      {todos.map((todo: TodoProps) => (
+        <TodoListItem todo={todo} key={todo.id} removeTodo={removeTodo} />
+      ))}
     </StyledList>
   );
 }
