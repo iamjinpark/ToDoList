@@ -1,10 +1,13 @@
 import './styles/App.css';
 import TodoTemplate from './components/TodoTemplate';
+import AddTodo from './components/AddTodo';
 
 function App() {
   return (
     <div>
-      <TodoTemplate>마인즈에이아이 과제</TodoTemplate>
+      <TodoTemplate>
+        <AddTodo />
+      </TodoTemplate>
     </div>
   );
 }
