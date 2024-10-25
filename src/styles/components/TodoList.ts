@@ -1,4 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
+interface StyledCheckBoxProps {
+  $completed: boolean; // 일시적 속성으로 변경
+}
 
 const StyledList = styled.div`
   min-height: 350px;
@@ -18,7 +22,7 @@ const StyledListItem = styled.div`
   }
 `;
 
-const StyledCheckBox = styled.div<{ checked: boolean }>`
+const StyledCheckBox = styled.div<StyledCheckBoxProps>`
   cursor: pointer;
   flex: 1;
   display: flex;
@@ -26,19 +30,16 @@ const StyledCheckBox = styled.div<{ checked: boolean }>`
 
   svg {
     font-size: 1.5rem;
-    color: ${({ checked }) => (checked ? '#22b8cf' : 'inherit')};
+    color: ${({ $completed }) => ($completed ? '#adb5bd' : 'inherit')};
   }
 `;
 
-const StyleListItemText = styled.div<{ checked: boolean }>`
+const StyleListItemText = styled.div<StyledCheckBoxProps>`
   margin-left: 0.5rem;
   flex: 1;
-  color: ${({ checked }) => (checked ? '#adb5bd' : 'inherit')};
-  ${({ checked }) =>
-    checked &&
-    css`
-      text-decoration: line-through;
-    `}
+  color: ${({ $completed }) => ($completed ? '#adb5bd' : 'inherit')};
+  text-decoration: ${({ $completed }) =>
+    $completed ? 'line-through' : 'none'};
 `;
 
 const StyledRemoveButton = styled.div`

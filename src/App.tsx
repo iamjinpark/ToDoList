@@ -1,15 +1,10 @@
 import './styles/App.css';
-import TodoTemplate from './components/TodoTemplate';
-import AddTodo from './components/AddTodo';
-import TodoList from './components/TodoList';
+import TodoApp from './components/TodoApp';
 
 function App() {
   return (
     <div>
-      <TodoTemplate>
-        <AddTodo />
-        <TodoList />
-      </TodoTemplate>
+      <TodoApp />
     </div>
   );
 }

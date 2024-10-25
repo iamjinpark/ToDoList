@@ -1,4 +1,4 @@
-import { MdAdd } from 'react-icons/md';
+import icons from '../assets/icons';
 import {
   StyledAddForm,
   StyledAddInput,
@@ -15,7 +15,7 @@ function AddTodo() {
         placeholder="할 일을 추가하세요."
       />
       <StyledAddButton typeof="submit" aria-label="할 일 추가 버튼">
-        <MdAdd />
+        <icons.actions.add />
       </StyledAddButton>
     </StyledAddForm>
   );

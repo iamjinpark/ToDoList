@@ -1,21 +1,23 @@
-import { RiCheckboxBlankCircleLine } from 'react-icons/ri';
-import { TiDelete } from 'react-icons/ti';
+import icons from '../assets/icons';
 import {
   StyledListItem,
   StyledCheckBox,
   StyleListItemText,
   StyledRemoveButton,
 } from '../styles/components/TodoList';
+import { TodoListItemProps } from '../types/TodoList';
 
-function TodoListItem() {
+function TodoListItem({ todo }: TodoListItemProps) {
+  const { title, completed } = todo;
+
   return (
     <StyledListItem>
-      <StyledCheckBox>
-        <RiCheckboxBlankCircleLine />
-        <StyleListItemText className="text">할 일</StyleListItemText>
+      <StyledCheckBox $completed={completed}>
+        {completed ? <icons.checkbox.checked /> : <icons.checkbox.unchecked />}
+        <StyleListItemText $completed={completed}>{title}</StyleListItemText>
       </StyledCheckBox>
-      <StyledRemoveButton className="remove">
-        <TiDelete />
+      <StyledRemoveButton>
+        <icons.actions.delete />
       </StyledRemoveButton>
     </StyledListItem>
   );
