@@ -18,7 +18,7 @@ const StyledAddInput = styled.input`
   }
 `;
 
-const StyledAddButton = styled.div`
+const StyledAddButton = styled.button`
   background: none;
   outline: none;
   border: none;

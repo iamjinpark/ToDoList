@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import TodoTemplate from './TodoTemplate';
 import AddTodo from './AddTodo';
@@ -24,9 +24,24 @@ function TodoApp() {
     fetchTodos();
   }, []);
 
+  // 새로운 To Do 추가하기
+  const nextId = useRef(6);
+  const addTodo = useCallback(
+    (title: string) => {
+      const todo = {
+        id: nextId.current,
+        title,
+        completed: false,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1;
+    },
+    [todos],
+  );
+
   return (
     <TodoTemplate>
-      <AddTodo />
+      <AddTodo addTodo={addTodo} />
       <TodoList todos={todos} />
     </TodoTemplate>
   );
