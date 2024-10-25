@@ -24,7 +24,7 @@ function TodoApp() {
     fetchTodos();
   }, []);
 
-  // 새로운 To Do 추가하기
+  // To Do 추가하기
   const nextId = useRef(6);
   const addTodo = useCallback(
     (title: string) => {
@@ -39,10 +39,18 @@ function TodoApp() {
     [todos],
   );
 
+  // To Do 삭제하기
+  const removeTodo = useCallback(
+    (id: number) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos],
+  );
+
   return (
     <TodoTemplate>
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} removeTodo={removeTodo} />
     </TodoTemplate>
   );
 }

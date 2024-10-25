@@ -5,12 +5,7 @@ import {
   StyledAddInput,
   StyledAddButton,
 } from '../styles/components/AddTodo';
-
-// 타입 설정
-// AddTodo 컴포넌트의 props 타입 정의
-interface AddTodoProps {
-  addTodo: (title: string) => void;
-}
+import { AddTodoProps } from '../types/TodoList';
 
 function AddTodo({ addTodo }: AddTodoProps) {
   const [value, setValue] = useState('');

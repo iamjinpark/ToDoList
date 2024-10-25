@@ -5,10 +5,10 @@ import {
   StyleListItemText,
   StyledRemoveButton,
 } from '../styles/components/TodoList';
-import { TodoListItemProps } from '../types/TodoList';
+import { TodoListProps } from '../types/TodoList';
 
-function TodoListItem({ todo }: TodoListItemProps) {
-  const { title, completed } = todo;
+function TodoListItem({ todo, removeTodo }: TodoListProps) {
+  const { id, title, completed } = todo;
 
   return (
     <StyledListItem>
@@ -16,7 +16,7 @@ function TodoListItem({ todo }: TodoListItemProps) {
         {completed ? <icons.checkbox.checked /> : <icons.checkbox.unchecked />}
         <StyleListItemText $completed={completed}>{title}</StyleListItemText>
       </StyledCheckBox>
-      <StyledRemoveButton>
+      <StyledRemoveButton onClick={() => removeTodo(id)}>
         <icons.actions.delete />
       </StyledRemoveButton>
     </StyledListItem>

@@ -5,11 +5,13 @@ interface TodoProps {
 }
 
 interface TodoListProps {
-  todos: TodoProps[];
-}
-
-interface TodoListItemProps {
+  todos?: TodoProps[];
   todo: TodoProps;
+  removeTodo: (id: number) => void;
 }
 
-export type { TodoProps, TodoListProps, TodoListItemProps };
+interface AddTodoProps {
+  addTodo: (title: string) => void;
+}
+
+export type { TodoProps, TodoListProps, AddTodoProps };
