@@ -5,9 +5,13 @@ import {
   StyleListItemText,
   StyledRemoveButton,
 } from '../styles/components/TodoList';
-import { TodoListItemProps } from '../types/TodoList';
+import { TodoListProps } from '../types/TodoList';
 
-function TodoListItem({ todo, removeTodo, toggleTodo }: TodoListItemProps) {
+function TodoListItem({
+  todo,
+  removeTodo,
+  toggleTodo,
+}: Omit<TodoListProps, 'todos'>) {
   const { id, title, completed } = todo;
 
   return (

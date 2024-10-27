@@ -2,7 +2,11 @@ import TodoListItem from './TodoListItem';
 import { StyledList } from '../styles/components/TodoList';
 import { TodoListProps, TodoProps } from '../types/TodoList';
 
-function TodoList({ todos, removeTodo, toggleTodo }: TodoListProps) {
+function TodoList({
+  todos,
+  removeTodo,
+  toggleTodo,
+}: Omit<TodoListProps, 'todo'>) {
   return (
     <StyledList>
       {todos.map((todo: TodoProps) => (
