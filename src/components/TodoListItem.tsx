@@ -1,10 +1,5 @@
 import icons from '../assets/icons';
-import {
-  StyledListItem,
-  StyledCheckBox,
-  StyleListItemText,
-  StyledRemoveButton,
-} from '../styles/components/TodoList';
+import Styled from '../styles/components/TodoList';
 import { TodoListProps } from '../types/TodoList';
 
 function TodoListItem({
@@ -15,15 +10,17 @@ function TodoListItem({
   const { id, title, completed } = todo;
 
   return (
-    <StyledListItem>
-      <StyledCheckBox $completed={completed} onClick={() => toggleTodo(id)}>
+    <Styled.ListItem>
+      <Styled.CheckBox $completed={completed} onClick={() => toggleTodo(id)}>
         {completed ? <icons.checkbox.checked /> : <icons.checkbox.unchecked />}
-        <StyleListItemText $completed={completed}>{title}</StyleListItemText>
-      </StyledCheckBox>
-      <StyledRemoveButton onClick={() => removeTodo(id)}>
+        <Styled.ListItemText $completed={completed}>
+          {title}
+        </Styled.ListItemText>
+      </Styled.CheckBox>
+      <Styled.RemoveButton onClick={() => removeTodo(id)}>
         <icons.actions.delete />
-      </StyledRemoveButton>
-    </StyledListItem>
+      </Styled.RemoveButton>
+    </Styled.ListItem>
   );
 }
 

@@ -1,16 +1,12 @@
 import { TemplateProps } from '../types/TodoList';
-import {
-  StyledTodoTemplate,
-  StyledTitle,
-  StyledContent,
-} from '../styles/components/TodoTemplate';
+import Styled from '../styles/components/TodoTemplate';
 
 function TodoTemplate({ children }: TemplateProps) {
   return (
-    <StyledTodoTemplate>
-      <StyledTitle>To Do List</StyledTitle>
-      <StyledContent>{children}</StyledContent>
-    </StyledTodoTemplate>
+    <Styled.TodoTemplate>
+      <Styled.Title>To Do List</Styled.Title>
+      <Styled.Content>{children}</Styled.Content>
+    </Styled.TodoTemplate>
   );
 }
 

@@ -1,20 +1,19 @@
 import { useCallback, useState } from 'react';
 import icons from '../assets/icons';
-import {
-  StyledAddForm,
-  StyledAddInput,
-  StyledAddButton,
-} from '../styles/components/AddTodo';
+import Styled from '../styles/components/AddTodo';
 import { AddTodoProps } from '../types/TodoList';
 
 function AddTodo({ addTodo }: AddTodoProps) {
   const [value, setValue] = useState('');
 
-  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  }, []);
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+    },
+    [],
+  );
 
-  const onSubmit = useCallback(
+  const submitNewTodo = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
       if (value.trim()) {
@@ -26,19 +25,21 @@ function AddTodo({ addTodo }: AddTodoProps) {
   );
 
   return (
-    <StyledAddForm role="form" onSubmit={onSubmit}>
+    <Styled.AddForm role="form" onSubmit={submitNewTodo}>
       <label htmlFor="newTodoItem" aria-label="할 일 추가하기" />
-      <StyledAddInput
+      <Styled.AddInput
         id="newTodoItem"
+        name="newTodItem"
         type="text"
         placeholder="할 일을 추가하세요."
         value={value}
-        onChange={onChange}
+        onChange={handleInputChange}
+        required
       />
-      <StyledAddButton type="submit" aria-label="할 일 추가 버튼">
+      <Styled.AddButton type="submit" aria-label="할 일 추가 버튼">
         <icons.actions.add />
-      </StyledAddButton>
-    </StyledAddForm>
+      </Styled.AddButton>
+    </Styled.AddForm>
   );
 }
 

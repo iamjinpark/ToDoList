@@ -1,5 +1,5 @@
 import TodoListItem from './TodoListItem';
-import { StyledList } from '../styles/components/TodoList';
+import Styled from '../styles/components/TodoList';
 import { TodoListProps, TodoProps } from '../types/TodoList';
 
 function TodoList({
@@ -8,7 +8,7 @@ function TodoList({
   toggleTodo,
 }: Omit<TodoListProps, 'todo'>) {
   return (
-    <StyledList>
+    <Styled.List>
       {todos.map((todo: TodoProps) => (
         <TodoListItem
           todo={todo}
@@ -17,7 +17,7 @@ function TodoList({
           toggleTodo={toggleTodo}
         />
       ))}
-    </StyledList>
+    </Styled.List>
   );
 }
 
