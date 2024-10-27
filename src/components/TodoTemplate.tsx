@@ -1,16 +1,11 @@
-import { ReactNode } from 'react';
+import { TemplateProps } from '../types/TodoList';
 import {
   StyledTodoTemplate,
   StyledTitle,
   StyledContent,
 } from '../styles/components/TodoTemplate';
 
-// 타입 설정
-interface Props {
-  children: ReactNode;
-}
-
-function TodoTemplate({ children }: Props) {
+function TodoTemplate({ children }: TemplateProps) {
   return (
     <StyledTodoTemplate>
       <StyledTitle>To Do List</StyledTitle>

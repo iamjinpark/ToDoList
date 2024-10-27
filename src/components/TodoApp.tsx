@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import TodoTemplate from './TodoTemplate';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
@@ -37,24 +38,22 @@ function TodoApp() {
   }, [todos]);
 
   // To Do 추가하기
-  // TODO : id값 동적으로 바꾸기
-  const nextId = useRef(6);
   const addTodo = useCallback(
     (title: string) => {
       const todo = {
-        id: nextId.current,
+        userId: 1,
+        id: uuidv4(),
         title,
         completed: false,
       };
       setTodos(todos.concat(todo));
-      nextId.current += 1;
     },
     [todos],
   );
 
   // To Do 삭제하기
   const removeTodo = useCallback(
-    (id: number) => {
+    (id: string) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
     [todos],
@@ -62,7 +61,7 @@ function TodoApp() {
 
   // To Do 수정하기
   const toggleTodo = useCallback(
-    (id: number) => {
+    (id: string) => {
       setTodos(
         todos.map((todo) =>
           todo.id === id ? { ...todo, completed: !todo.completed } : todo,

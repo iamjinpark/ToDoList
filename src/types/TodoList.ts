@@ -1,5 +1,12 @@
+import { ReactNode } from 'react';
+
+interface TemplateProps {
+  children: ReactNode;
+}
+
 interface TodoProps {
-  id: number;
+  userId: number;
+  id: string;
   title: string;
   completed: boolean;
 }
@@ -7,18 +14,24 @@ interface TodoProps {
 // TODO : 타입 중복 수정하기
 interface TodoListProps {
   todos: TodoProps[];
-  removeTodo: (id: number) => void;
-  toggleTodo: (id: number) => void;
+  removeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 }
 
 interface TodoListItemProps {
   todo: TodoProps;
-  removeTodo: (id: number) => void;
-  toggleTodo: (id: number) => void;
+  removeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
 }
 
 interface AddTodoProps {
   addTodo: (title: string) => void;
 }
 
-export type { TodoProps, TodoListProps, TodoListItemProps, AddTodoProps };
+export type {
+  TemplateProps,
+  TodoProps,
+  TodoListProps,
+  TodoListItemProps,
+  AddTodoProps,
+};
