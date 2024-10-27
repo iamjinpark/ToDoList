@@ -5,13 +5,15 @@ interface StyledCheckBoxProps {
 }
 
 const Styled = {
-  List: styled.div`
+  List: styled.ul`
     min-height: 350px;
     max-height: 600px;
     overflow-y: scroll;
+    margin: 0;
+    padding: 0;
   `,
 
-  ListItem: styled.div`
+  ListItem: styled.li`
     padding: 1rem;
     display: flex;
     align-items: center;

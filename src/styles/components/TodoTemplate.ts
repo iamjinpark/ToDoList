@@ -8,7 +8,8 @@ const Styled = {
     overflow: hidden;
   `,
 
-  Title: styled.div`
+  Title: styled.h1`
+    margin: 0;
     background: #789dbc;
     color: white;
     height: 4rem;
