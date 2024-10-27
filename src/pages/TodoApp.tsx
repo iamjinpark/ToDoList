@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import TodoTemplate from './TodoTemplate';
-import AddTodo from './AddTodo';
-import TodoList from './TodoList';
+import TodoTemplate from '../layout/TodoTemplate';
+import AddTodo from '../components/AddTodo';
+import TodoList from '../components/TodoList';
 import { TodoProps } from '../types/TodoList';
 
 function TodoApp() {
