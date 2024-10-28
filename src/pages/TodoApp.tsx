@@ -8,28 +8,29 @@ import { fetchTodos } from '../utils/fetchTodo';
 
 function TodoApp() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // 렌더링 시 데이터 불러오기
-  const loadTodos = async () => {
-    const savedTodos = localStorage.getItem('todos');
-    if (savedTodos) {
-      setTodos(JSON.parse(savedTodos));
-    } else {
-      const todos = await fetchTodos();
-      setTodos(todos);
-    }
-  };
-
   useEffect(() => {
+    const loadTodos = async () => {
+      const savedTodos = localStorage.getItem('todos');
+      if (savedTodos) {
+        setTodos(JSON.parse(savedTodos));
+      } else {
+        const todos = await fetchTodos();
+        setTodos(todos);
+      }
+      setIsLoaded(true);
+    };
     loadTodos();
   }, []);
 
   // 로컬 스토리지에 데이터 저장
   useEffect(() => {
-    if (todos.length > 0) {
+    if (isLoaded) {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
-  }, [todos]);
+  }, [todos, isLoaded]);
 
   // Todo 추가하기
   const addTodo = useCallback((title: string) => {
