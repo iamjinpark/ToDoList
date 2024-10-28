@@ -4,7 +4,7 @@ import Styled from '../styles/components/AddTodo';
 import { AddTodoProps } from '../types/TodoList';
 
 function AddTodo({ addTodo }: AddTodoProps) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +14,7 @@ function AddTodo({ addTodo }: AddTodoProps) {
   );
 
   const submitNewTodo = useCallback(
-    (e: React.FormEvent) => {
+    (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       if (value.trim()) {
         addTodo(value);
