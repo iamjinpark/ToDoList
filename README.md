@@ -29,13 +29,13 @@
 
 - 배포 주소 : [To Do List 바로가기](https://todolist-jiinpark.vercel.app/)
 - 프로젝트 설치할 경우
-  1. 프로젝트를 클론합니다.
+  1. 프로젝트를 클론합니다.<br/>
      ` git clone https://github.com/iamjinpark/ToDoList.git`
-  2. 프로젝트 디렉토리로 이동합니다.
+  2. 프로젝트 디렉토리로 이동합니다.<br/>
      `cd ToDoList`
-  3. 필요한 패키지를 설치합니다.
+  3. 필요한 패키지를 설치합니다.<br/>
      ` npm install`
-  4. 개발 서버를 실행합니다.
+  4. 개발 서버를 실행합니다.<br/>
      `npm start`
 
 ## 폴더구조
