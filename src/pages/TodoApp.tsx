@@ -6,28 +6,35 @@ import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 import { TodoProps } from '../types/TodoList';
 
+// 외부 API에서 데이터 불러오기
+const fetchTodos = async (): Promise<TodoProps[]> => {
+  try {
+    const response = await axios.get<TodoProps[]>(
+      'https://jsonplaceholder.typicode.com/todos?_limit=5',
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching todos:', error);
+    return [];
+  }
+};
+
 function TodoApp() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
 
-  // 초기 데이터 불러오기
-  useEffect(() => {
+  // 렌더링 시 데이터 불러오기
+  const loadTodos = async () => {
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos) {
       setTodos(JSON.parse(savedTodos));
     } else {
-      const fetchTodos = async (): Promise<void> => {
-        try {
-          const response = await axios.get<TodoProps[]>(
-            'https://jsonplaceholder.typicode.com/todos?_limit=5',
-          );
-          setTodos(response.data);
-        } catch (error) {
-          console.error('Error :', error);
-        }
-      };
-
-      fetchTodos();
+      const todos = await fetchTodos();
+      setTodos(todos);
     }
+  };
+
+  useEffect(() => {
+    loadTodos();
   }, []);
 
   // 로컬 스토리지에 데이터 저장
@@ -37,39 +44,32 @@ function TodoApp() {
     }
   }, [todos]);
 
-  // To Do 추가하기
-  const addTodo = useCallback(
-    (title: string) => {
-      const todo = {
+  // Todo 추가하기
+  const addTodo = useCallback((title: string) => {
+    setTodos((prev) => [
+      ...prev,
+      {
         userId: 1,
         id: uuidv4(),
         title,
         completed: false,
-      };
-      setTodos(todos.concat(todo));
-    },
-    [todos],
-  );
+      },
+    ]);
+  }, []);
 
-  // To Do 삭제하기
-  const removeTodo = useCallback(
-    (id: string) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
-    },
-    [todos],
-  );
+  // Todo 삭제하기
+  const removeTodo = useCallback((id: string) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  }, []);
 
-  // To Do 수정하기
-  const toggleTodo = useCallback(
-    (id: string) => {
-      setTodos(
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, completed: !todo.completed } : todo,
-        ),
-      );
-    },
-    [todos],
-  );
+  // Todo 완료하기
+  const toggleTodo = useCallback((id: string) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  }, []);
 
   return (
     <TodoTemplate>

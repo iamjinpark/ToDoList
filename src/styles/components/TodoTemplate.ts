@@ -6,6 +6,11 @@ const Styled = {
     margin-top: 6rem;
     border-radius: 4px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 320px;
+      margin-top: 6rem;
+    }
   `,
 
   Title: styled.h1`
@@ -17,6 +22,11 @@ const Styled = {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      height: 4rem;
+      font-size: 1.5rem;
+    }
   `,
 
   Content: styled.div`
