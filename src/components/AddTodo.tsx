@@ -26,7 +26,7 @@ function AddTodo({ addTodo }: AddTodoProps) {
 
   return (
     <Styled.AddForm role="form" onSubmit={submitNewTodo}>
-      <label htmlFor="newTodoItem" aria-label="할 일 추가하기" />
+      <Styled.AddLabel htmlFor="newTodoItem">할 일 추가하기</Styled.AddLabel>
       <Styled.AddInput
         id="newTodoItem"
         name="newTodItem"

@@ -17,7 +17,10 @@ function TodoListItem({
           {title}
         </Styled.ListItemText>
       </Styled.CheckBox>
-      <Styled.RemoveButton onClick={() => removeTodo(id)}>
+      <Styled.RemoveButton
+        onClick={() => removeTodo(id)}
+        aria-label="할 일 삭제 버튼"
+      >
         <icons.actions.delete />
       </Styled.RemoveButton>
     </Styled.ListItem>

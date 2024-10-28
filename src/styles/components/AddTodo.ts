@@ -6,6 +6,10 @@ const Styled = {
     background: #fef9f2;
   `,
 
+  AddLabel: styled.label`
+    display: none;
+  `,
+
   AddInput: styled.input`
     background: none;
     outline: none;
