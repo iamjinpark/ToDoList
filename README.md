@@ -1,9 +1,9 @@
 # MindsAI - To Do List 과제 구현
 
-이 프로젝트는 React, Typescript를 사용하여 만든 To Do List 입니다.
-할 일을 추가, 완료, 삭제할 수 있는 간단한 기능을 제공합니다.
+이 프로젝트는 React, Typescript를 사용하여 만든 To Do List 입니다.<br/>
+할 일을 추가, 완료, 삭제할 수 있는 간단한 기능을 제공합니다.<br/>
 외부 API 연동, 로컬 스토리지 사용, CSS-in-JS 스타일링 등 여러가지 기능 구현을 통해
-사용자 경험을 최적화하는 데 중점을 두었습니다.
+사용자 경험을 최적화하는 데 중점을 두었습니다.<br/>
 
 ## 목차
 
@@ -19,7 +19,7 @@
 ## 프로젝트 개요
 
 - 목적 :
-  사용자가 할 일을 손쉽게 추가하고 관리할 수 있는 To Do List 페이지 입니다.
+  사용자가 할 일을 손쉽게 추가하고 관리할 수 있는 To Do List 페이지 입니다.<br/>
   React를 사용한 컴포넌트 기반 SPA(Single Page Application)로 구현하였습니다.
 - 기술스택 : React, Typescript, styled-component
 - 환경구성 : React + Typescript + vite, prettier, eslint
@@ -44,19 +44,19 @@
 <img src='https://github.com/user-attachments/assets/47f18841-402a-4bef-adff-4385b31b5bee' alt='폴더구조'/>
 </p>
 
-📁 assets : 아이콘을 객체 파일로 관리
-📁 components : 추가, 목록, 항목 컴포넌트 관리
-📁 layout : 컴포넌트 템플릿 관리
-📁 pages : 최종 컴포넌트 관리 (Todo list)
-📁 styles : 전역 및 각 컴포넌트에 해당하는 스타일 파일 관리
-📁 types : 타입 정의 파일 관리
+📁 assets : 아이콘을 객체 파일로 관리<br/>
+📁 components : 추가, 목록, 항목 컴포넌트 관리<br/>
+📁 layout : 컴포넌트 템플릿 관리<br/>
+📁 pages : 최종 컴포넌트 관리 (Todo list)<br/>
+📁 styles : 전역 및 각 컴포넌트에 해당하는 스타일 파일 관리<br/>
+📁 types : 타입 정의 파일 관리<br/>
 📁 utils : 유틸 함수 관리
 
 - 이번 프로젝트는 싱글 페이지로 컴포넌트간의 역할 분리를 위해 템플릿은 layout, 최종 컴포넌트를 pages에 배치시켰습니다.
 
 ## 주요 기능
 
-#### 1. **외부 API를 통한 초기 데이터 로드**
+### 1. 외부 API를 통한 초기 데이터 로드
 
 <p align='center'>
 <img src='https://github.com/user-attachments/assets/b06bbdbb-a617-4e97-9701-ebf7d5217ee1' alt='외부 API 연동으로 초기 데이터 로드'/>
@@ -80,7 +80,7 @@ export const fetchTodos = async (): Promise<TodoProps[]> => {
 };
 ```
 
-#### 2. **할 일 추가 기능**
+### 2. 할 일 추가 기능
 
 <p align='center'>
 <img src='https://github.com/user-attachments/assets/0c9e283f-008a-4171-8a16-43a26d0b4cc7' alt='할 일 추가 기능'/>
@@ -95,7 +95,7 @@ export const fetchTodos = async (): Promise<TodoProps[]> => {
 
 - 데이터 중복과 충돌을 방지하기 위해 UUID를 활용해 고유한 id값을 부여했습니다.
 
-#### 3. **할 일 완료 기능**
+### 3. 할 일 완료 기능
 
 <p align='center'>
 <img src='https://github.com/user-attachments/assets/e44533e2-ceb9-48d5-827d-4f99ec9a6dae' alt='할 일 완료 기능'/>
@@ -106,15 +106,15 @@ export const fetchTodos = async (): Promise<TodoProps[]> => {
 
   - 완료 처리 전 로컬스토리지 값
   <p align='center'>
-  <img src='https://github.com/user-attachments/assets/31b6d208-6a59-4efe-8020-0e90c8b19b1a' alt='할 일 완료 처리 전 로컬스토리지' width='300px'/>
+  <img src='https://github.com/user-attachments/assets/31b6d208-6a59-4efe-8020-0e90c8b19b1a' alt='할 일 완료 처리 전 로컬스토리지' width='400px'/>
   </p>
 
   - 완료 처리 후 로컬스토리지 값
   <p align='center'>
-  <img src='https://github.com/user-attachments/assets/982274a1-5efc-41ff-a1da-bde91cccc608' alt='할 일 완료 처리 전 로컬스토리지' width='300px'/>
+  <img src='https://github.com/user-attachments/assets/982274a1-5efc-41ff-a1da-bde91cccc608' alt='할 일 완료 처리 전 로컬스토리지' width='400px'/>
   </p>
 
-#### 4. **할 일 삭제 기능**
+### 4. 할 일 삭제 기능
 
 <p align='center'>
 <img src='https://github.com/user-attachments/assets/ee84b9ab-e7ac-4f97-bd11-adcf7bd5d7bd' alt='할 일 삭제 기능'/>
@@ -123,7 +123,7 @@ export const fetchTodos = async (): Promise<TodoProps[]> => {
 - 삭제 버튼을 클릭하면 특정 항목을 삭제할 수 있습니다.
 - 삭제된 항목은 로컬스토리지에서도 삭제됩니다.
 
-#### 5. **로컬스토리지를 사용한 데이터 저장 및 불러오기 기능**
+### 5. 로컬스토리지를 사용한 데이터 저장 및 불러오기 기능
 
 - 위의 기능 설명에서 볼 수 있듯이 모든 추가, 완료, 삭제 데이터는 로컬스토리지에 저장됩니다.
 - 로컬스토리지에 todos라는 키값이 있으면, 페이지가 다시 로드될 때 로컬스토리지에 저장된 데이터를 불러옵니다.
@@ -140,7 +140,7 @@ export const fetchTodos = async (): Promise<TodoProps[]> => {
 
 - 로컬스토리지에 todos라는 키값이 없으면, 외부 API를 통해 초기 데이터를 불러옵니다.
 
-#### 6. 기본적인 CSS-in-JS 스타일링 (styled-component)
+### 6. 기본적인 CSS-in-JS 스타일링 (styled-component)
 
 - 가독성을 높이기 위해 스타일을 객체로 묶고 그룹화하여 사용했습니다.
 - 컴포넌트 단위로 파일을 나누어 유지보수에 용이하게 작업했습니다.
