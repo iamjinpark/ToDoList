@@ -2,7 +2,7 @@
 
 이 프로젝트는 React, Typescript를 사용하여 만든 To Do List 입니다.<br/>
 할 일을 추가, 완료, 삭제할 수 있는 간단한 기능을 제공합니다.<br/>
-외부 API 연동, 로컬 스토리지 사용, CSS-in-JS 스타일링 등 여러가지 기능 구현을 통해
+외부 API 연동, 로컬 스토리지 사용 등 여러가지 기능 구현을 통해
 사용자 경험을 최적화하는 데 중점을 두었습니다.<br/>
 
 ## 목차
@@ -27,16 +27,16 @@
 
 ## 프로젝트 배포 주소 및 설치
 
-- 배포 주소 : <https://todolist-jiinpark.vercel.app/>
+- 배포 주소 : [To Do List 바로가기](https://todolist-jiinpark.vercel.app/)
 - 프로젝트 설치할 경우
   1. 프로젝트를 클론합니다.
-     git clone https://github.com/iamjinpark/ToDoList.git
+     ` git clone https://github.com/iamjinpark/ToDoList.git`
   2. 프로젝트 디렉토리로 이동합니다.
-     cd ToDoList
+     `cd ToDoList`
   3. 필요한 패키지를 설치합니다.
-     npm install
+     ` npm install`
   4. 개발 서버를 실행합니다.
-     npm start
+     `npm start`
 
 ## 폴더구조
 
