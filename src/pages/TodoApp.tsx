@@ -1,23 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import TodoTemplate from '../layout/TodoTemplate';
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 import { TodoProps } from '../types/TodoList';
-
-// 외부 API에서 데이터 불러오기
-const fetchTodos = async (): Promise<TodoProps[]> => {
-  try {
-    const response = await axios.get<TodoProps[]>(
-      'https://jsonplaceholder.typicode.com/todos?_limit=5',
-    );
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching todos:', error);
-    return [];
-  }
-};
+import { fetchTodos } from '../utils/fetchTodo';
 
 function TodoApp() {
   const [todos, setTodos] = useState<TodoProps[]>([]);
