@@ -17,7 +17,9 @@ function TodoApp() {
       if (savedTodos) {
         setTodos(JSON.parse(savedTodos));
       } else {
-        const todos = await fetchTodos();
+        const todos = await fetchTodos(
+          'https://jsonplaceholder.typicode.com/todos?_limit=5',
+        );
         setTodos(todos);
       }
       setIsLoaded(true);

@@ -8,7 +8,7 @@
 ## 목차
 
 1. 프로젝트 개요
-2. 프로젝트 베포 주소 및 설치
+2. 프로젝트 배포 주소 및 설치
 3. 폴더 구조
 4. 주요 기능
 5. 접근성 및 성능 최적화
@@ -36,7 +36,7 @@
   3. 필요한 패키지를 설치합니다.<br/>
      ` npm install`
   4. 개발 서버를 실행합니다.<br/>
-     `npm start`
+     `npm run dev`
 
 ## 폴더구조
 
@@ -67,11 +67,9 @@
 - 유틸함수를 활용하여 코드의 재사용성과 가독성을 높였습니다.
 
 ```
-export const fetchTodos = async (): Promise<TodoProps[]> => {
+export const fetchTodos = async (url: string): Promise<TodoProps[]> => {
   try {
-    const response = await axios.get<TodoProps[]>(
-      'https://jsonplaceholder.typicode.com/todos?_limit=5',
-    );
+    const response = await axios.get<TodoProps[]>(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching todos:', error);
