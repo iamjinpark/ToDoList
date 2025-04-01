@@ -1,5 +1,3 @@
-# MindsAI - To Do List 과제 구현
-
 이 프로젝트는 React, Typescript를 사용하여 만든 To Do List 입니다.<br/>
 할 일을 추가, 완료, 삭제할 수 있는 간단한 기능을 제공합니다.<br/>
 외부 API 연동, 로컬 스토리지 사용 등 여러가지 기능 구현을 통해
